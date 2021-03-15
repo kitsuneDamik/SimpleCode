@@ -1,0 +1,26 @@
+﻿@model PatientCard.DataBase.Specialization
+
+@{
+    ViewBag.Title = "SpecializationDetails";
+}
+
+<h2>SpeccializationDetails</h2>
+
+<div>
+    <h4>Specialization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorSpecialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorSpecialization)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateSpecialization", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "SpecializationView")
+</p>

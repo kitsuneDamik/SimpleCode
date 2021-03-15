@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PatientCard.DataBase.DoctorInfo>
+
+@{
+    ViewBag.Title = "DoctorView";
+}
+
+<h2>DoctorView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateDoctor")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecializationId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecializationId)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DoctorDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteDoctor", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

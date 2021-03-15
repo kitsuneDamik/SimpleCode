@@ -1,0 +1,58 @@
+﻿@model PatientCard.DataBase.VisitHistory
+
+@{
+    ViewBag.Title = "VisitDetails";
+}
+
+<h2>VisitDetails</h2>
+
+<div>
+    <h4>VisitHistory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complaints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complaints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfVisit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfVisit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateVisit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "VisitsView")
+</p>

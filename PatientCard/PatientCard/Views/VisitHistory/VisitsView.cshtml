@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PatientCard.DataBase.VisitHistory>
+
+@{
+    ViewBag.Title = "VisitsView";
+}
+
+<h2>VisitsView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddVisit")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complaints)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfVisit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Complaints)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfVisit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientId)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "VisitDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteVisit", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

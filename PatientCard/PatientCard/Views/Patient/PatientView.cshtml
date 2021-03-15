@@ -1,0 +1,62 @@
+﻿@model IEnumerable<PatientCard.DataBase.PatientInfo>
+
+@{
+    ViewBag.Title = "PatientView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PatientView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreatePatientPages")
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Title: @Html.TextBox("SearchString") 
+            <input type="submit" value="Filter" />
+        </p>
+    }
+</p>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Iin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Iin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "PatientDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
